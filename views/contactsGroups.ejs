@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    fieldset {
+       display: block;
+       margin-left: 2px;
+       margin-right: 1950px;
+       padding-top: 0.35em;
+       padding-bottom: 0.625em;
+       padding-left: 0.175em;
+       padding-right: 0.75em;
+       border: 2px groove (internal value);
+    }
+    </style>
+    <meta charset="utf-8">
+    <title>Contacts Groups</title>
+  </head>
+  <body>
+
+      <h1> Welcome To Contacts Groups </h1>
+
+      <a href='/'>home</a>  <a href='/contactsGroups/detailContactsGroups'>detailContactsGroups</a>
+    <br><br>
+        <table>
+          <tr>
+            <th>id</th>
+            <th>contact_id</th>
+            <th>group_id</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+          </tr>
+          <% data.forEach(d => {  %>
+          <tr>
+            <td><%= d.id %></td>
+            <td><%= d.id_contacts %></td>
+            <td><%= d.id_groups %></td>
+            <td><a href="contactsGroups/editcontactsGroups/<%= d.id %>">edit</a></td>
+            <td><a href="contactsGroups/deletecontactsGroups/<%= d.id %>">delete</td>
+          </tr>
+          <%  }) %>
+        </table>
+
+        <h1> </h1>
+        <form action="/contactsGroups" method="post">
+          <fieldset>
+            <legend>Tambah Contacts Groups </legend>
+            Contact Id:<br>
+            <input type="text" name="contact_id">
+            <br>
+            Group Id:<br>
+            <input type="text" name="group_id">
+            <br><br>
+            <button type="submit">Save</button>
+          </fieldset>
+        </form>
+
+
+
+  </body>
+</html>

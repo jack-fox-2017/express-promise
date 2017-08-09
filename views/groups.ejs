@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    fieldset {
+       display: block;
+       margin-left: 2px;
+       margin-right: 1950px;
+       padding-top: 0.35em;
+       padding-bottom: 0.625em;
+       padding-left: 0.175em;
+       padding-right: 0.75em;
+       border: 2px groove (internal value);
+    }
+    </style>
+    <meta charset="utf-8">
+    <title>Groups</title>
+  </head>
+  <body>
+
+      <h1> Welcome To Groups </h1>
+
+      <a href='/'>home</a>
+<br><br>
+        <table>
+          <tr>
+            <th>Id</th>
+            <th>Nama</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+          </tr>
+          <% data.forEach(d => {  %>
+          <tr>
+            <td><%= d.id %></td>
+            <td><%= d.name_of_group %></td>
+            <td><a href="groups/editGroups/<%= d.id %>">edit</a></td>
+            <td><a href="groups/delete/<%= d.id %>">delete</td>
+          </tr>
+          <%  }) %>
+        </table>
+
+        <h1> </h1>
+        <form action="/groups" method="post">
+          <fieldset>
+            <legend>Tambah Groups </legend>
+            Nama:<br>
+            <input type="text" name="name_of_group">
+            <br><br>
+            <button type="submit">Save</button>
+          </fieldset>
+        </form>
+
+
+
+  </body>
+</html>

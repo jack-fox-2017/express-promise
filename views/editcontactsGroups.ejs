@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    fieldset {
+       display: block;
+       margin-left: 2px;
+       margin-right: 1950px;
+       padding-top: 0.35em;
+       padding-bottom: 0.625em;
+       padding-left: 0.175em;
+       padding-right: 0.75em;
+       border: 2px groove (internal value);
+    }
+    </style>
+    <meta charset="utf-8">
+    <title>Contacts Groups</title>
+  </head>
+  <body>
+
+    <a href='/'>home</a>
+
+    <h1> Edit Contacts Groups </h1>
+      <form action="/contactsGroups/editcontactsGroups/<%= data[0].id %>" method="post">
+        <fieldset>
+          <legend>Edit Contacts Groups </legend>
+          Id Contacts:<br>
+          <input type="text" name="contact_id" value="<%= data[0].id_contacts %>">
+          <br>
+          ID Groups:<br>
+          <input type="text" name="group_id" value="<%= data[0].id_groups%>">
+          <br><br>
+          <button type="submit">Save</button>
+        </fieldset>
+      </form>
+  </body>
+</html>

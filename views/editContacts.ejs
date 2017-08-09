@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+  table, th, td {
+    border: 1px solid black;
+  }
+  fieldset {
+     display: block;
+     margin-left: 2px;
+     margin-right: 1950px;
+     padding-top: 0.35em;
+     padding-bottom: 0.625em;
+     padding-left: 0.175em;
+     padding-right: 0.75em;
+     border: 2px groove (internal value);
+  }
+  </style>
+    <meta charset="utf-8">
+    <title>Edit Contacts</title>
+  </head>
+  <body>
+    <form action="/contacts/editContacts/<%= data[0].id %>" method="post">
+      <fieldset>
+        <legend>Tambah Kontak </legend>
+        Nama:<br>
+        <input type="text" name="Name" value="<%=data[0].name%>">
+        <br>
+        Company:<br>
+        <input type="text" name="Company" value="<%=data[0].company%>">
+        <br>
+        No Telp:<br>
+        <input type="text" name="Telp_number" value="<%=data[0].telp_number%>">
+        <br>
+        Email:<br>
+        <input type="text" name="Email" value="<%=data[0].email%>">
+        <br><br>
+        <button type="submit">Save</button>
+      </fieldset>
+    </form>
+
+  </body>
+</html>
