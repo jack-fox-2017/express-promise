@@ -32,6 +32,7 @@
           <th>City</th>
           <th>Zip Code</th>
           <th>Contact_Id</th>
+          <th>Contact Name</th>
           <th>Edit</th>
           <th>Delete</th>
         </tr>
@@ -42,6 +43,7 @@
           <td><%= d.city %></td>
           <td><%= d.zipcode %></td>
           <td><%= d.contact_id %></td>
+          <td><%= d.name %></td>
           <td><a href='/addresses/editAddresses/<%= d.id %>'>edit</a></td>
           <td><a href="/addresses/deleteAddresses/<%= d.id %>">delete</td>
         </tr>

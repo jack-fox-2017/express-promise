@@ -17,6 +17,16 @@ router.get('/',function(req,res){
       // console.log(addressdata);
       Contacts.findall(connect.connection)
         .then(Contacts => {
+          for(var i = 0; i < addressdata.length;i++){
+            for (var j = 0; j < Contacts.length; j++) {
+              if(addressdata[i].contact_id == Contacts[j].id){
+                addressdata[i].name = Contacts[j].name
+                addressdata[i].company = Contacts[j].company
+                addressdata[i].telp_number = Contacts[j].telp_number
+                addressdata[i].email = Contacts[j].email
+              }
+            }
+          }
           // console.log(Contacts);
           res.render('addresses',{data1:addressdata,data2:Contacts})
         })
