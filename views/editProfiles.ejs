@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    fieldset {
+       display: block;
+       margin-left: 2px;
+       margin-right: 1950px;
+       padding-top: 0.35em;
+       padding-bottom: 0.625em;
+       padding-left: 0.175em;
+       padding-right: 0.75em;
+       border: 2px groove (internal value);
+    }
+    </style>
+    <meta charset="utf-8">
+    <title>Profiles</title>
+  </head>
+  <body>
+
+    <h1> Edit Profiles </h1>
+      <form action="/profiles/editProfiles/<%= data[0].id %>" method="post">
+        <fieldset>
+          <legend>Edit Profiles </legend>
+          Username:<br>
+          <input type="text" name="username" value="<%= data[0].username %>">
+          <br>
+          City:<br>
+          <input type="text" name="password" value="<%= data[0].password%>">
+          <br>
+          Contact Id:<br>
+          <input type="text" name="contact_id" value="<%= data[0].contact_id%>">
+          <br><br>
+          <button type="submit">Save</button>
+        </fieldset>
+      </form>
+  </body>
+</html>

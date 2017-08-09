@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    fieldset {
+       display: block;
+       margin-left: 2px;
+       margin-right: 1950px;
+       padding-top: 0.35em;
+       padding-bottom: 0.625em;
+       padding-left: 0.175em;
+       padding-right: 0.75em;
+       border: 2px groove (internal value);
+    }
+    </style>
+    <meta charset="utf-8">
+    <title>Detail Contacts Address</title>
+  </head>
+  <body>
+
+  <h1> Welcome To Detail Contacts Address </h1>
+
+<a href='/'>home</a>
+<br><br>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Nama</th>
+        <th>Company</th>
+        <th>TelpNumber</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Password</th>
+      </tr>
+      <% data.forEach(d => {  %>
+      <tr>
+        <td><%= d.id %></td>
+        <td><%= d.name %></td>
+        <td><%= d.company %></td>
+        <td><%= d.telp_number %></td>
+        <td><%= d.email %></td>
+        <td><%= d.username %></td>
+        <td><%= d.password %></td>
+      </tr>
+      <%  }) %>
+    </table>
+  </body>
+</html>

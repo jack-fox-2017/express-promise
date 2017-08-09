@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    fieldset {
+       display: block;
+       margin-left: 2px;
+       margin-right: 1950px;
+       padding-top: 0.35em;
+       padding-bottom: 0.625em;
+       padding-left: 0.175em;
+       padding-right: 0.75em;
+       border: 2px groove (internal value);
+    }
+    </style>
+    <meta charset="utf-8">
+    <title>Adresses</title>
+  </head>
+  <body>
+
+    <h1> Edit Addresses </h1>
+      <form action="/addresses/editAddresses/<%= data[0].id %>" method="post">
+        <fieldset>
+          <legend>Edit Address </legend>
+          Street:<br>
+          <input type="text" name="street" value="<%= data[0].street %>">
+          <br>
+          City:<br>
+          <input type="text" name="city" value="<%= data[0].city%>">
+          <br>
+          Zip code:<br>
+          <input type="text" name="zipcode" value="<%= data[0].zipcode%>">
+          <br>
+          Contact_id:<br>
+          <select type="text" name="contact_id">
+            <%data2.forEach(d => { %>
+          <option value= <%=d.id%>>
+            <%=d.id%> . <%=d.name%>
+          </option>
+            <%})%>
+          </select>
+          <br><br>
+          <button type="submit">Save</button>
+        </fieldset>
+      </form>
+  </body>
+</html>
