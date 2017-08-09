@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Profiles</title>
+  </head>
+  <body>
+    <h1>Edit Profiles</h1>
+    <% let d = dataProfile %>
+    <form action="/profiles/edit/<%= d.id %>" method="post">
+      <input type="text" name="hometown" placeholder="Hometown" value="<%= d.hometown %>"><br>
+      <input type="text" name="birth_year" placeholder="Birth Year" value="<%= d.birth_year %>"><br>
+      <input type="text" name="relationship_status" placeholder="Relationship Status" value="<%= d.relationship_status %>"><br>
+      <select class="" name="contacts_id">
+        <% let dC = dataContact %>
+        <option value="<%=d.users_id%>"><%= dC.name %></option>
+      </select><br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

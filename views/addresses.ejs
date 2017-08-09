@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Addresses</title>
+    <title>Addresses with contact</title>
   </head>
   <body>
-    <h1>Addresses</h1>
+    <h1>Addresses with contact</h1>
     <table border="1">
       <thead>
         <tr>
@@ -14,19 +14,23 @@
           <th>City</th>
           <th>Zip code</th>
           <th>Contact id</th>
+          <th>Name</th>
+          <th>company</th>
           <th colspan="2">Actions</th>
         </tr>
       </thead>
       <tbody>
-        <% dataAddresses.forEach(d =>{ %>
+        <% dataAddresses.forEach(dA =>{ %>
         <tr>
-          <td><%= d.id %></td>
-          <td><%= d.street %></td>
-          <td><%= d.city %></td>
-          <td><%= d.zip_code %></td>
-          <td><%= d.contacts_id %></td>
-          <td><a href="/addresses/edit/<%= d.id %>">Edit</a></td>
-          <td><a href="/addresses/delete/<%= d.id %>">Delete</a></td>
+          <td><%= dA.id %></td>
+          <td><%= dA.street %></td>
+          <td><%= dA.city %></td>
+          <td><%= dA.zip_code %></td>
+          <td><%= dA.contacts_id %></td>
+          <td><%= dA.name %></td>
+          <td><%= dA.company %></td>
+          <td><a href="/addresses/edit/<%= dA.id %>">Edit</a></td>
+          <td><a href="/addresses/delete/<%= dA.id %>">Delete</a></td>
         </tr>
         <% }) %>
       </tbody>

@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const dbModel = require('../models/DBModel');
-const contactsModel = require('../models/Contacts');
+const Model = require('../models/Models');
 
 const pathDB = './db/data.db';
 const db = new dbModel(pathDB);
-const contact = new contactsModel();
+const model = new Model();
 
-let table = 'Contacts';
+let cont = 'Contacts';
 
 router.get('/', (req, res)=>{
-  contact.findAll(db.connection, table)
+  model.findAll(db.connection, cont)
     .then(contacts=>{
       res.render('contacts', {data: contacts});
     })
@@ -22,13 +22,13 @@ router.get('/', (req, res)=>{
 
 router.post('/', (req, res)=>{
   let obj = createObjCont(req);
-  contact.createData(db.connection, table, obj);
+  model.createData(db.connection, cont, obj);
   res.redirect('/contacts');
 });
 
 router.get('/edit/:id', (req, res)=>{
   let id = req.params.id;
-  contact.findById(db.connection, table, id)
+  model.findById(db.connection, cont, id)
     .then(contact=>{
       res.render('edit-contact', {data:contact});
     })
@@ -40,13 +40,13 @@ router.get('/edit/:id', (req, res)=>{
 router.post('/edit/:id', (req, res)=>{
   let id = req.params.id;
   let obj = createObjCont(req);
-  contact.update(db.connection, table, obj, id);
+  model.update(db.connection, cont, obj, id);
   res.redirect('/contacts');
 });
 
 router.get('/delete/:id', (req, res)=>{
   let id = req.params.id;
-  contact.remove(db.connection, table, id);
+  model.remove(db.connection, cont, id);
   res.redirect('/contacts');
 });
 

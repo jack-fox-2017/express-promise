@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Profiles with contact</title>
+  </head>
+  <body>
+    <h1>Profiles with contact</h1>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Profiles id</th>
+          <th>Hometown</th>
+          <th>Birth Year</th>
+          <th>Status</th>
+          <th>Contacts id</th>
+          <th>Name</th>
+          <th>Company</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% dataProfiles.forEach(dP =>{ %>
+        <tr>
+          <td><%= dP.id %></td>
+          <td><%= dP.hometown %></td>
+          <td><%= dP.birth_year %></td>
+          <td><%= dP.relationship_status %></td>
+          <td><%= dP.contacts_id %></td>
+          <td><%= dP.name %></td>
+          <td><%= dP.company %></td>
+          <td><a href="/profiles/edit/<%= dP.id %>">Edit</a></td>
+          <td><a href="/profiles/delete/<%= dP.id %>">Delete</a></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <br><br><br>
+    <form action="/profiles" method="post">
+      <select class="" name="contacts_id">
+        <% dataContacts.forEach(dC =>{ %>
+        <option value="<%=dC.id%>"><%= dC.name %></option>
+        <% }) %>
+      </select><br>
+      <input type="text" name="hometown" placeholder="Hometown"><br>
+      <input type="text" name="birth_year" placeholder="Birth Year"><br>
+      <input type="text" name="relationship_status" placeholder="Relationship Status"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
