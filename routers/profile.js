@@ -59,7 +59,7 @@ router.post('/profile/edit/:id', (req, res) =>{
 	.then((rows)=>{
 		contactModel.findAll(db.connection)
 		.then((data)=>{
-			profileModel.update(db.connection, req.params.id)
+			profileModel.update(db.connection, req.body, req.params.id)
 			.then(()=>{
 				res.redirect('/profile')
 			})
