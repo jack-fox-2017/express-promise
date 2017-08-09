@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<center>
+<h1>ADDRESS INFO</h1>
+<br>
+<a href="/addresses/add"><button type="Submit" name="Add">Add New Addresses</button></a>
+<br><br>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Street</th>
+    <th>City</th>
+    <th>Zip Code</th>
+    <th>User ID</th>
+    <th>Username</th>
+    <th colspan='2'><center>Option</center></th>
+  </tr>
+  <!-- <%=JSON.stringify(dataAddresses)%> -->
+  <% dataAddresses.forEach( addresses=>{ %>
+  <tr>
+    <td><%= addresses.id %></td>
+    <td><%= addresses.street %></td>
+    <td><%= addresses.city %></td>
+    <td><%= addresses.zipcode %></td>
+    <td><%= addresses.user_id %></td>
+    <td><%= addresses.username %></td>
+    <td><a href="/addresses/edit/<%=addresses.id%>"><button type="button" name="Edit">EDIT</button></a></td>
+    <td><a href="/addresses/delete/<%=addresses.id%>"><button type="button" name="Delete">DELETE</button></a></td>
+  </tr>
+  <% }) %>
+</table>
+</center>
+</body>
+</html>

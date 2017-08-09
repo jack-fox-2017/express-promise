@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<center>
+<h1>GROUPS INFO</h1>
+<br>
+<a href="/groups/add"><button type="Submit" name="Add">Add New Groups</button></a>
+<br><br>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name Group</th>
+    <th colspan='2'><center>Option</center></th>
+  </tr>
+  <!-- <%=JSON.stringify(dataGroups)%> -->
+  <% dataGroups.forEach( groups=>{ %>
+  <tr>
+    <td><%= groups.id %></td>
+    <td><%= groups.name %></td>
+    <td><a href="/groups/edit/<%=groups.id%>"><button type="button" name="Edit">EDIT</button></a></td>
+    <td><a href="/groups/delete/<%=groups.id%>"><button type="button" name="Delete">DELETE</button></a></td>
+  </tr>
+  <% }) %>
+</table>
+</center>
+</body>
+</html>
