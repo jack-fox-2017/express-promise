@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Addresses Edit Form</title>
+  </head>
+  <body>
+  <center>
+    <h2>EDIT Address</h2><br><br>
+    <form action="/addresses/edit/<%= dataAddresses.id%>" method="POST">
+    Street:<br>
+    <input type="text" name="street" value="<%= dataAddresses.street%>">
+    <br><br>
+    City:<br>
+    <input type="text" name="city" value="<%= dataAddresses.city%>">
+    <br><br>
+    Zip Code:<br>
+    <input type="text" name="zipcode" value="<%= dataAddresses.zipcode%>">
+    <br><br>
+    <select name="user_id">
+      <% dataUsers.forEach(data =>{ %>
+        <%
+          var selected = ""
+          if(data.id == dataAddresses.user_id) {
+            selected = "selected"
+          }
+        %>
+        <option value="<%= data.id %>" <%= selected %> >
+          <%= data.username %>
+      </option>
+     <% }) %>
+
+    </select>
+
+    </select>
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+  </center>
+  </body>
+</html>
