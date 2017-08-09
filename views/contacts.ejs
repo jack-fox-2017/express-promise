@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Table contacts</h1>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>name</th>
+          <th>company</th>
+          <th>telpon</th>
+          <th>email</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% data.forEach(d=> {%>
+            <tr>
+              <td><%= d.id %></td>
+              <td><%= d.name %></td>
+              <td><%= d.company %></td>
+              <td><%= d.telp_number %></td>
+              <td><%= d.email %></td>
+              <td><a href="contacts/delete?id=<%= d.id %>">Delete</a></td>
+              <td><a href="contacts/edit?id=<%= d.id %>">Edit</a></td>
+            </tr>
+          <%})%>
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <form  action="/contacts" method="post">
+      <input type="text" name="name" placeholder="Input nama" required><br>
+      <input type="text" name="company" placeholder="Input perusahaan" required><br>
+      <input type="text" name="telp_number" placeholder="Input Nomor Telp" required><br>
+      <input type="email" name="email" placeholder="Input email" required><br>
+      <button type="submit">Save</button>
+    </form>
+    <br>
+    <a href="/"><button type="link" name="button">Back to Index</button></a>
+    <br>
+  </body>
+</html>
