@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Contact</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.min.css">
+  </head>
+  <body>
+    <center>
+      <section class="section">
+      <div class="container">
+    <h1 class="title">Edit Contact</h1>
+    <h2>
+      <%dataC.forEach(function(d){ %>
+      <form action="/contacts/edit/<%=d.id%>" method="post">
+        Name:<br>
+        <input type="text" name="name" value="<%=d.name%>"><br>
+        Company:<br>
+        <input type="text" name="company" value="<%=d.company%>"> <br>
+        Phone Number:<br>
+        <input type="text" name="telp_number" value="<%=d.telp_number%>"><br>
+        Email:<br>
+        <input type="text" name="email" value="<%=d.email%>"><br>
+        <br>
+        <button class="button is-primary" type="submit" name="button">Save Changes</button> <br>
+      </form>
+    </h2>
+    <%})%>
+  </div>
+</section>
+  </center>
+  </body>
+</html>
