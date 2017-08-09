@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Table Addresses id <%= data.id%></h1>
+    <br>
+    <br>
+    <form  action="/addresses/edit" method="post">
+      <label>Street: </label><br>
+      <input type="text" name="street" value="<%= data.street%>" required><br>
+      <label>City: </label><br>
+      <input type="text" name="city" value="<%= data.city%>" required><br>
+      <label>Zipcode: </label><br>
+      <input type="text" name="zipcode" value="<%= data.zipcode%>" required><br>
+      <label>Username</label><br>
+      <select name="id_contacts">
+        <% contacts.forEach(z =>{ %>
+        <% if(data.id_contacts===z.id)var x='selected' %>
+        <option value="<%= z.id%>" <%= x %>><%= z.name%></option>
+        <% }) %>
+      </select><br>
+      <input type="hidden" name="id" value="<%= data.id%>">
+      <button type="submit">Save</button>
+    </form>
+    <br>
+    <a href="/addresses"><button type="link" name="button">Back to Addresses</button></a>
+    <br>
+  </body>
+</html>

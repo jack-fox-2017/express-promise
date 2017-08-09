@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Table Addresses</h1>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Id Addresses</th>
+          <th>Street</th>
+          <th>City</th>
+          <th>Zip code</th>
+          <th>name</th>
+          <th>company</th>
+          <th>telpon</th>
+          <th>email</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% addresses.forEach(d=> {%>
+            <tr>
+              <td><%= d.id %></td>
+              <td><%= d.street %></td>
+              <td><%= d.city %></td>
+              <td><%= d.zipcode %></td>
+              <td><%= d.name %></td>
+              <td><%= d.company %></td>
+              <td><%= d.telp_number %></td>
+              <td><%= d.email %></td>
+              <td><a href="addresses/delete?id=<%= d.id %>">Delete</a></td>
+              <td><a href="addresses/edit?id=<%= d.id %>">Edit</a></td>
+            </tr>
+          <%})%>
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <% if(!error) { %>
+      <h2 colour='red' ><%= error %></h2>
+    <% } %>
+
+    <form  action="/addresses" method="post">
+      <label>Street: </label><br>
+      <input type="text" name="street" required><br>
+      <label>City: </label><br>
+      <input type="text" name="city" required><br>
+      <label>Zipcode: </label><br>
+      <input type="text" name="zipcode" required><br>
+      <select name="id_contacts">
+        <% contacts.forEach(z =>{ %>
+        <option value="<%= z.id%>"><%= z.name%></option>
+        <% }) %>
+      </select><br>
+      <button type="submit">Save</button>
+    </form>
+    <br>
+    <a href="/"><button type="link" name="button">Back to Index</button></a>
+    <br>
+  </body>
+</html>
