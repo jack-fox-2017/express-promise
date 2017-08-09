@@ -18,15 +18,15 @@
         </tr>
       </thead>
       <tbody>
-        <% data.forEach(d =>{ %>
+        <% dataContacts.forEach(dC =>{ %>
         <tr>
-          <td><%= d.id %></td>
-          <td><%= d.name %></td>
-          <td><%= d.company %></td>
-          <td><%= d.phone %></td>
-          <td><%= d.email %></td>
-          <td><a href="/contacts/edit/<%= d.id %>">Edit</a></td>
-          <td><a href="/contacts/delete/<%= d.id %>">Delete</a></td>
+          <td><%= dC.id %></td>
+          <td><%= dC.name %></td>
+          <td><%= dC.company %></td>
+          <td><%= dC.phone %></td>
+          <td><%= dC.email %></td>
+          <td><a href="/contacts/edit/<%= dC.id %>">Edit</a></td>
+          <td><a href="/contacts/delete/<%= dC.id %>">Delete</a></td>
         </tr>
         <% }) %>
       </tbody>
@@ -36,7 +36,12 @@
       <input type="text" name="name" placeholder="Name"><br>
       <input type="text" name="company" placeholder="Company"><br>
       <input type="text" name="phone" placeholder="Phone"><br>
-      <input type="text" name="email" placeholder="Email"><br><br>
+      <input type="text" name="email" placeholder="Email"><br>
+      <select class="" name="groups_id">
+        <% dataGroups.forEach(dG =>{ %>
+        <option value="<%=dG.id%>"><%= dG.group_name %></option>
+        <% }) %>
+      </select><br><br>
       <input type="submit" value="Submit">
     </form>
   </body>

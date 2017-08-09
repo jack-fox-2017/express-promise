@@ -1,7 +1,7 @@
 class Models{
   constructor(){}
 
-  findAll(db, table, cb){
+  findAll(db, table){
     return new Promise((resolve, reject)=>{
       let qry = `SELECT * FROM ${table}`;
       db.all(qry, (err, rows)=>{
@@ -60,7 +60,7 @@ class Models{
             }
           });
         });
-      break;
+        break;
       case 'Addresses' :
         return new Promise((resolve, reject)=>{
           let qryAdd = `INSERT INTO ${table} (street, city, zip_code, contacts_id) VALUES (
@@ -69,6 +69,33 @@ class Models{
             '${obj.zip_code}',
             '${obj.contacts_id}')`;
           db.run(qryAdd, (err, redirect)=>{
+            if(!err){
+              resolve(redirect);
+            }else{
+              reject(err);
+            }
+          });
+        });
+        break;
+      case 'Groups' :
+        return new Promise((resolve, reject)=>{
+          let qryGrou = `INSERT INTO ${table} (group_name) VALUES (
+            '${obj.group_name}')`;
+          db.run(qryGrou, (err, redirect)=>{
+            if(!err){
+              resolve(redirect);
+            }else{
+              reject(err);
+            }
+          });
+        });
+        break;
+      case 'GroupsContact' :
+        return new Promise((resolve, reject)=>{
+          let qryGrCo = `INSERT INTO ${table} (groups_id, contacts_id) VALUES (
+            '${obj.groups_id}',
+            '${obj.contacts_id}')`;
+          db.run(qryGrCo, (err, redirect)=>{
             if(!err){
               resolve(redirect);
             }else{
@@ -108,6 +135,12 @@ class Models{
           zip_code='${obj.zip_code}'
           WHERE id=${id}`;
         db.run(qryAdd);
+        break;
+      case 'Groups':
+        let qryGrou = `UPDATE ${table} SET
+          group_name='${obj.group_name}'
+          WHERE id=${id}`;
+        db.run(qryGrou);
         break;
       default:
         console.log('Table not found!');
